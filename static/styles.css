@@ -1,0 +1,139 @@
+.backg {
+  position: relative;
+  text-align: center;
+
+}
+.centered {
+  position: absolute;
+  font-size: 50px;
+  font-weight: bold;
+  font-family: cursive;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 50%;
+  height: 70%;
+}
+.mess{
+  font-size: 20px;
+  padding: 30px;
+  font-family: cursive;
+  color: pink !important;
+}
+.home{
+  background-color:rgba(3, 8, 20, 0.2);
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  color: #c74ab0 !important;
+}
+#bot {
+  font-size: 20px;
+
+}
+.navbar-brand{
+  color: #b9ed0c !important;
+  font-style: oblique;
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 80px;
+}
+
+p{
+  color: hotpink !important;
+  font-size: 20px;
+}
+.nav-item .nav-link{
+  font-style: oblique;
+  font-family: cursive;
+  font-size: 20px;
+  color: white !important;
+  margin-right: 20px;
+}
+.nav-item .nav-link:hover{
+  color: pink !important;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+a:hover{
+  color: #1942e6 !important;
+}
+
+h6, h4{
+  text-align: left;
+  font-style: italic;
+  font-weight: 50;
+  padding: 3px;
+
+}
+h5, h2{
+  text-align: left;
+  font-weight: bolder;
+}
+
+h3{
+  text-align: center;
+}
+
+/* styling for star rating*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:white;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
