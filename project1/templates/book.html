@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+  <style type="text/css">
+    body
+    {
+      background-image: url("/static/img/boo.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+  </style>
+
+  <div class="bg">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-faded navbar-right" style="background-color:rgba(3, 8, 20, 0.2);">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span class="mb-0 h1">BOOKZ</span></a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="centered">
+      <div class="home">
+        <h2>Book Details:</h2>
+        <h6>Title:{{title}}</h6>
+        <h6>Author:{{author}}</h6>
+        <h6>Publication Year:{{year}}</h6>
+        <h6>ISBN number:{{isbn}}</h6>
+        <h6>Average Rating(from goodreads):{{rating}}</h6>
+        <h6>Number of Ratings(from goodreads):{{count}}</h6>
+        <h6>Number of Ratings(from Bookz):{{countb}}</h6>
+        <p></p>
+        {% for rev in reviews %}
+            <h2>Reviews:</h2>
+            <h6>Username: {{rev.username}}</h6>
+            <h6>Rated: ({{rev.rating}})</h6>
+            <h5>{{rev.review}}</h5>
+        {% endfor %}
+        <p></p>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <form action="{{ url_for('ratedReview', isbn=isbn) }}" method="POST">
+          <div class="form-group">
+            <h6>Add your own rating of {{title}}:</h6>
+          </div>
+          <div class="form-group">
+            <div class="rate">
+              <input type="radio" id="star5" name="rate" value="5" />
+              <label for="star5" title="Excellent">5 stars</label>
+              <input type="radio" id="star4" name="rate" value="4" />
+              <label for="star4" title="Very Good">4 stars</label>
+              <input type="radio" id="star3" name="rate" value="3" />
+              <label for="star3" title="Good">3 stars</label>
+              <input type="radio" id="star2" name="rate" value="2" />
+              <label for="star2" title="Fair">2 stars</label>
+              <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="Poor">1 star</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="comment"><h6>Add your own review of {{title}}:</h6></label>
+            <textarea class="form-control" rows="4" id="comment" name="reviewText" placeholder="Review...."></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-success my-2 my-sm-0"type="submit">Add</button>
+          </div>
+        </form>
+        {% if status: %}
+            <div class="alert alert-success" role="alert">
+                <h5>{{status}}</h5>
+            </div>
+        {% endif %}
+        {% if status1: %}
+            <div class="alert alert-danger" role="alert">
+              <h5>{{status1}}</h5>
+            </div
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
